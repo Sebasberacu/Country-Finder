@@ -103,7 +103,7 @@ const obtainCountries = async (userInput) => {
     const response = await fetch(url, requestOptions);
     if (!response.ok) {
       // If not success
-      throw new Error("Recurso no encontrado");
+      throw new Error("Resource not found");
     }
     const result_1 = await response.text();
     const countriesInfo = JSON.parse(result_1);
@@ -179,8 +179,8 @@ const listBorderCountriesHTML = async (borderCountries) => {
 
 // Makes the call to create the modal of the country details.
 // Handles the promise from 'obtainCountries'
-const callCountryDetailsModal = (countryName) => {
-  obtainCountries(countryName) // Promise handle
+const callCountryDetailsModal = (countryCode) => {
+  obtainCountryNameByCode(countryCode) // Promise handle
     .then((countriesInfo) => {
       if (countriesInfo !== undefined) {
         countriesInfo.forEach((country) => {
@@ -207,6 +207,7 @@ const callCountryDetailsModal = (countryName) => {
 // Creates the country deatils modal html and shows it.
 // Receives the info of the country.
 const createCountryDetailsModal = async (countryInfo) => {
+  console.log("countryInfo: \n"+countryInfo);
   let continents = "";
   countryInfo.continents.forEach((element) => { // For countries with 2 continents
       continents += element + ", ";
@@ -310,7 +311,7 @@ const displayTableInfo = (countriesInfo) => {
 
     // Calling country details modal
     btn.addEventListener("click", () => {
-      callCountryDetailsModal(`${country.name.common}`);
+      callCountryDetailsModal(`${country.cca3}`);
     });
   });
 }

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../img/favicon.png">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="../styles/styles.css"> 
+    <title>Countries Finder</title>
+
+</head>
+<body class="bg-dark bg-opacity-90">
+
+    <div id="modalsDivID">
+        <!-- Modal -->
+        <div class="modal fade" id="modalCountryNotFound" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="countryNotFoundLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="countryNotFoundLabel">Country not found!</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <a>There are no coincidences with the content of the name of the country that you entered.</a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="text-center bg-secondary text-light p-3 mb-2">
+            <h1> Country Finder </h1>
+            <small class="text-black fs-5">Look for as much as you remember of the name of a country!</small>
+        </div>
+
+        <div class="container-xl mt-4">
+            <div class="input-group mb-3">
+                <span id="spanSearch" class="input-group-text"><img src="../img/search.png" class="img-fluid" width="20px" height="20px" alt="Search"></span>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="inptCountryName" placeholder="Country Name">
+                    <label for="inptCountryName">Country Name</label>
+                </div>
+            </div>
+        </div>
+
+        <hr class="border border-secondary border-1 opacity-50 my-4">
+
+        <div class="container-xl">
+            <div class="table-responsive">
+                <div class="input-group mb-3">
+                    <input type="text" id="inptSearchTable" class="form-control border-secondary bg-dark text-light" placeholder="Search in table..." aria-label="Search in table..." aria-describedby="basic-addon2">
+                  </div>
+                
+                <table class="table align-middle table-dark table-hover table-bordered" id="countriesTableID">
+                    <thead id="countriesTableHeadID">
+                        <tr>
+                            <th class="text-center">
+                                <span class="clickable-span" onclick="sortTable('countriesTableID', 0)"><img src="../img/sortIcon.png" class="img-fluid" width="13px" height="10px" alt="Sort"></span>
+                                Name
+                            </th>
+                            <th class="text-center">
+                                <span class="clickable-span" onclick="sortTable('countriesTableID', 1)"><img src="../img/sortIcon.png" class="img-fluid" width="13px" height="10px" alt="Sort"></span>
+                                Official Name
+                            </th>
+                            <th class="text-center">
+                                <span class="clickable-span" onclick="sortTable('countriesTableID', 2)"><img src="../img/sortIcon.png" class="img-fluid" width="13px" height="10px" alt="Sort"></span>
+                                Continent
+                            </th>
+                            <th class="text-center">
+                                <span class="clickable-span" onclick="sortTable('countriesTableID', 3)"><img src="../img/sortIcon.png" class="img-fluid" width="13px" height="10px" alt="Sort"></span>
+                                Code
+                            </th>
+                            <th class="text-center">
+                                <span class="clickable-span" onclick="sortTable('countriesTableID', 4)"><img src="../img/sortIcon.png" class="img-fluid" width="13px" height="10px" alt="Sort"></span>
+                                Capital
+                            </th>
+                            <th class="text-center">
+                                <span class="clickable-span" onclick="sortTable('countriesTableID', 5)"><img src="../img/sortIcon.png" class="img-fluid" width="13px" height="10px" alt="Sort"></span>
+                                Region
+                            </th>
+                            <th class="text-center">
+                                
+                            </th>
+                              
+                        </tr>
+                    </thead>
+                    <tbody id="countriesTableBodyID">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <script src="../js/countries.js"></script>
+</body>
+</html>

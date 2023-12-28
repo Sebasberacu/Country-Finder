@@ -1,0 +1,7 @@
+#spanSearch:hover {
+    cursor: pointer;
+}
+
+.form-control::placeholder {
+    color: gray;
+}
